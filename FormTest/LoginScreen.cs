@@ -1,3 +1,5 @@
+using ParkerTracker;
+
 namespace FormTest {
     public partial class LoginScreen : Form {
         public LoginScreen() {
@@ -13,8 +15,10 @@ namespace FormTest {
         }
 
         private void loginbutton_Click(object sender, EventArgs e) {
-            new Form2().Show();
-            this.Hide();
+            Scraper s = new Scraper(9254);
+            s.runStuff();
+            //new Form2().Show();
+            //this.Hide();
             if (UserText.Text == "btrfangril" && PasswordText.Text == "imbocchi727") {
                 
                 StatusText.Text = "Successful Login";
