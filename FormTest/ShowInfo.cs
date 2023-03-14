@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JikanDotNet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace FormTest {
             this.id = id;
             this.name = name;
             this.description = description;
+        }
+        public ShowInfo(int id) {
+            this.id = id;
+        }
+        public async Task<String> populateFields() {
+            IJikan jikan = new Jikan();
+            var anime = await jikan.GetAnimeAsync(this.id);
+            name = anime.Data.TitleEnglish;
+            return name;
+        }
+        private string populateSynopsis(Anime anime) {
+            return anime.Synopsis;
         }
         public string getName() {
             return name;

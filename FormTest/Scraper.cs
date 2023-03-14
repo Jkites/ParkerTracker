@@ -29,10 +29,14 @@ namespace ParkerTracker {
             string htmlfile = await callUrl(scraperUrl);
             htmldoc.LoadHtml(htmlfile);
            // var parsedfile = htmldoc.DocumentNode.SelectNodes("//div[@id=\"content\"]"); //, 'p itemprop=\"description\"'))]");
-            var prasedfile = htmldoc.DocumentNode.Descendants("td")
-                .Where(node => node.GetAttributeValue("valign", "").Contains("top"))
-                .ToList();
-            Debug.WriteLine(prasedfile[0].InnerText);
+            var description = htmldoc.DocumentNode.Descendants("p")
+                .Where(node => node.GetAttributeValue("itemprop", "").Contains("description")) 
+                .ToList(); //description
+            Debug.WriteLine(description[0].InnerText);
+            /*var title = htmldoc.DocumentNode.Descendants("div")
+                .Where(node => node.GetAttributeValue("class","").Contains("title"))
+                .ToList(); */
+
         }
         
     }
