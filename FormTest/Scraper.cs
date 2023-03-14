@@ -14,6 +14,7 @@ using System.Diagnostics;
 namespace ParkerTracker {
     internal class Scraper {
         private string scraperUrl;
+        HtmlAgilityPack.HtmlDocument htmldoc = new HtmlAgilityPack.HtmlDocument();
 
         public Scraper(int id) {
             this.scraperUrl = "https://myanimelist.net/anime/" + id;
@@ -21,14 +22,17 @@ namespace ParkerTracker {
         private static async Task<string> callUrl(string fullUrl) {
             HttpClient client = new HttpClient();
             var response = await client.GetStringAsync(fullUrl);
-            Debug.WriteLine(response);
+            //Debug.WriteLine(response);
             return response;
         }
-        public async void runStuff() {
-            await callUrl(scraperUrl);
-        }
-        private void runStuff2() {
-
+        public async void runStuff() { //parse html
+            string htmlfile = await callUrl(scraperUrl);
+            htmldoc.LoadHtml(htmlfile);
+           // var parsedfile = htmldoc.DocumentNode.SelectNodes("//div[@id=\"content\"]"); //, 'p itemprop=\"description\"'))]");
+            var prasedfile = htmldoc.DocumentNode.Descendants("td")
+                .Where(node => node.GetAttributeValue("valign", "").Contains("top"))
+                .ToList();
+            Debug.WriteLine(prasedfile[0].InnerText);
         }
         
     }

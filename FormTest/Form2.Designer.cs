@@ -35,8 +35,10 @@
             this.FilledInEntryButton = new System.Windows.Forms.Button();
             this.HomeButton2 = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.SearchIntBox = new System.Windows.Forms.NumericUpDown();
             this.HomePanel.SuspendLayout();
             this.EntryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchIntBox)).BeginInit();
             this.SuspendLayout();
             // 
             // HomePanel
@@ -179,12 +181,23 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // SearchIntBox
+            // 
+            this.SearchIntBox.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.SearchIntBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SearchIntBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.SearchIntBox.Location = new System.Drawing.Point(556, 18);
+            this.SearchIntBox.Name = "SearchIntBox";
+            this.SearchIntBox.Size = new System.Drawing.Size(150, 23);
+            this.SearchIntBox.TabIndex = 5;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SearchIntBox);
             this.Controls.Add(this.EntryPanel);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.HomePanel);
@@ -194,6 +207,7 @@
             this.HomePanel.PerformLayout();
             this.EntryPanel.ResumeLayout(false);
             this.EntryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchIntBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +225,6 @@
         private Button FilledInEntryButton;
         private Button HomeButton2;
         private Button BackButton;
+        private NumericUpDown SearchIntBox;
     }
 }
