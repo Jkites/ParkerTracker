@@ -1,7 +1,5 @@
-﻿namespace FormTest
-{
-    partial class LoginScreen
-    {
+﻿namespace FormTest {
+    partial class LoginScreen {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,142 +22,142 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.loginbutton = new System.Windows.Forms.Button();
-            this.UserText = new System.Windows.Forms.TextBox();
-            this.PasswordText = new System.Windows.Forms.TextBox();
-            this.StatusText = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            label1 = new Label();
+            label2 = new Label();
+            loginbutton = new Button();
+            UserText = new TextBox();
+            PasswordText = new TextBox();
+            StatusText = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(341, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(341, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(125, 125);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Location = new System.Drawing.Point(284, 215);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 1);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = SystemColors.Highlight;
+            panel1.Location = new Point(284, 215);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 1);
+            panel1.TabIndex = 1;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel2.Location = new System.Drawing.Point(284, 297);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 1);
-            this.panel2.TabIndex = 2;
+            panel2.BackColor = SystemColors.Highlight;
+            panel2.Location = new Point(284, 297);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 1);
+            panel2.TabIndex = 2;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sylfaen", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(232, 198);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "User";
+            label1.AutoSize = true;
+            label1.Font = new Font("Sylfaen", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Highlight;
+            label1.Location = new Point(232, 198);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 19);
+            label1.TabIndex = 3;
+            label1.Text = "User";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sylfaen", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(196, 279);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Password";
+            label2.AutoSize = true;
+            label2.Font = new Font("Sylfaen", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.Highlight;
+            label2.Location = new Point(196, 279);
+            label2.Name = "label2";
+            label2.Size = new Size(78, 19);
+            label2.TabIndex = 4;
+            label2.Text = "Password";
             // 
             // loginbutton
             // 
-            this.loginbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.loginbutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.loginbutton.FlatAppearance.BorderSize = 0;
-            this.loginbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.loginbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.loginbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginbutton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.loginbutton.Location = new System.Drawing.Point(341, 346);
-            this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(94, 29);
-            this.loginbutton.TabIndex = 5;
-            this.loginbutton.Text = "Login";
-            this.loginbutton.UseVisualStyleBackColor = false;
-            this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
+            loginbutton.BackColor = Color.FromArgb(64, 0, 64);
+            loginbutton.Cursor = Cursors.Hand;
+            loginbutton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            loginbutton.FlatAppearance.BorderSize = 0;
+            loginbutton.FlatAppearance.MouseDownBackColor = Color.Silver;
+            loginbutton.FlatAppearance.MouseOverBackColor = Color.Silver;
+            loginbutton.FlatStyle = FlatStyle.Flat;
+            loginbutton.ForeColor = SystemColors.Highlight;
+            loginbutton.Location = new Point(341, 346);
+            loginbutton.Name = "loginbutton";
+            loginbutton.Size = new Size(94, 29);
+            loginbutton.TabIndex = 5;
+            loginbutton.Text = "Login";
+            loginbutton.UseVisualStyleBackColor = false;
+            loginbutton.Click += loginbutton_Click;
             // 
             // UserText
             // 
-            this.UserText.BackColor = System.Drawing.SystemColors.InfoText;
-            this.UserText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UserText.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.UserText.Location = new System.Drawing.Point(287, 193);
-            this.UserText.Name = "UserText";
-            this.UserText.Size = new System.Drawing.Size(247, 20);
-            this.UserText.TabIndex = 6;
-            this.UserText.TextChanged += new System.EventHandler(this.UserText_TextChanged);
+            UserText.BackColor = SystemColors.InfoText;
+            UserText.BorderStyle = BorderStyle.None;
+            UserText.ForeColor = SystemColors.MenuHighlight;
+            UserText.Location = new Point(287, 193);
+            UserText.Name = "UserText";
+            UserText.Size = new Size(247, 20);
+            UserText.TabIndex = 6;
+            UserText.TextChanged += UserText_TextChanged;
             // 
             // PasswordText
             // 
-            this.PasswordText.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.PasswordText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordText.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.PasswordText.Location = new System.Drawing.Point(287, 275);
-            this.PasswordText.Name = "PasswordText";
-            this.PasswordText.Size = new System.Drawing.Size(247, 20);
-            this.PasswordText.TabIndex = 7;
-            this.PasswordText.UseSystemPasswordChar = true;
+            PasswordText.BackColor = SystemColors.InactiveCaptionText;
+            PasswordText.BorderStyle = BorderStyle.None;
+            PasswordText.ForeColor = SystemColors.MenuHighlight;
+            PasswordText.Location = new Point(287, 275);
+            PasswordText.Name = "PasswordText";
+            PasswordText.Size = new Size(247, 20);
+            PasswordText.TabIndex = 7;
+            PasswordText.UseSystemPasswordChar = true;
             // 
             // StatusText
             // 
-            this.StatusText.BackColor = System.Drawing.Color.Black;
-            this.StatusText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.StatusText.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.StatusText.Location = new System.Drawing.Point(341, 146);
-            this.StatusText.Name = "StatusText";
-            this.StatusText.Size = new System.Drawing.Size(125, 20);
-            this.StatusText.TabIndex = 8;
+            StatusText.BackColor = Color.Black;
+            StatusText.BorderStyle = BorderStyle.None;
+            StatusText.ForeColor = SystemColors.MenuHighlight;
+            StatusText.Location = new Point(341, 146);
+            StatusText.Name = "StatusText";
+            StatusText.ReadOnly = true;
+            StatusText.Size = new Size(125, 20);
+            StatusText.TabIndex = 8;
+            StatusText.TextChanged += StatusText_TextChanged;
             // 
             // LoginScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.StatusText);
-            this.Controls.Add(this.PasswordText);
-            this.Controls.Add(this.UserText);
-            this.Controls.Add(this.loginbutton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "LoginScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
+            ClientSize = new Size(800, 450);
+            Controls.Add(StatusText);
+            Controls.Add(PasswordText);
+            Controls.Add(UserText);
+            Controls.Add(loginbutton);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox1);
+            Name = "LoginScreen";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

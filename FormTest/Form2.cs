@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormTest {
-    public partial class Form2 : Form {
+    public partial class Form2 : Form { //needs the list of ShowInfos that are SAVED so also create that file reader class
         Stack<Panel> panels = new Stack<Panel>();
         Panel currentpanel;
         public Form2() {
@@ -43,7 +43,7 @@ namespace FormTest {
 
         }
 
-        private void button3_Click(object sender, EventArgs e){ //homebutton on Entry page 
+        private void button3_Click(object sender, EventArgs e) { //homebutton on Entry page 
             EntryPanel.Hide();
             panels.Push(EntryPanel);
             HomePanel.Show();
@@ -54,13 +54,21 @@ namespace FormTest {
         private void BackButton_Click(object sender, EventArgs e) {
             if (panels.Count > 0) {
                 currentpanel.Hide();
-                currentpanel=panels.Pop();
+                currentpanel = panels.Pop();
                 currentpanel.Show();
-                
+
             }
             else {
                 Debug.WriteLine("Unsuccessful because stack is empty?");
             }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e) { //use SearchIntBox
+
+        }
+
+        private void ValidTitlesBox_SelectedIndexChanged(object sender, EventArgs e) {
+
         }
     }
 }

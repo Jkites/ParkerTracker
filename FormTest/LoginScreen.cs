@@ -15,17 +15,20 @@ namespace FormTest {
         }
 
         private void loginbutton_Click(object sender, EventArgs e) {
-            Scraper s = new Scraper(9253);
-            s.runStuff();
-            //new Form2().Show();
-            //this.Hide();
+
+            new Form2().Show();
+            this.Hide();
             if (UserText.Text == "btrfangril" && PasswordText.Text == "imbocchi727") {
-                
+
                 StatusText.Text = "Successful Login";
             }
             else {
                 StatusText.Text = "Invalid Login";
             }
+        }
+
+        private void StatusText_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }

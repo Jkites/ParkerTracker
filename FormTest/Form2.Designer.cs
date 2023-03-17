@@ -24,192 +24,251 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.HomePanel = new System.Windows.Forms.Panel();
-            this.AiringScheduleText = new System.Windows.Forms.TextBox();
-            this.StarButton = new System.Windows.Forms.Button();
-            this.EntryButton = new System.Windows.Forms.Button();
-            this.HomeButton = new System.Windows.Forms.Button();
-            this.EntryPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.StarButton2 = new System.Windows.Forms.Button();
-            this.FilledInEntryButton = new System.Windows.Forms.Button();
-            this.HomeButton2 = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.SearchIntBox = new System.Windows.Forms.NumericUpDown();
-            this.HomePanel.SuspendLayout();
-            this.EntryPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchIntBox)).BeginInit();
-            this.SuspendLayout();
+            HomePanel = new Panel();
+            AiringScheduleText = new TextBox();
+            StarButton = new Button();
+            EntryButton = new Button();
+            HomeButton = new Button();
+            EntryPanel = new Panel();
+            ValidTitlesBox = new ComboBox();
+            NewEntryTitleText = new TextBox();
+            LatestEntryText = new TextBox();
+            textBox1 = new TextBox();
+            StarButton2 = new Button();
+            FilledInEntryButton = new Button();
+            HomeButton2 = new Button();
+            BackButton = new Button();
+            SearchIntBox = new NumericUpDown();
+            SearchButton = new Button();
+            HomePanel.SuspendLayout();
+            EntryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SearchIntBox).BeginInit();
+            SuspendLayout();
             // 
             // HomePanel
             // 
-            this.HomePanel.Controls.Add(this.AiringScheduleText);
-            this.HomePanel.Controls.Add(this.StarButton);
-            this.HomePanel.Controls.Add(this.EntryButton);
-            this.HomePanel.Controls.Add(this.HomeButton);
-            this.HomePanel.Location = new System.Drawing.Point(15, 60);
-            this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(776, 375);
-            this.HomePanel.TabIndex = 0;
-            this.HomePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            HomePanel.Controls.Add(AiringScheduleText);
+            HomePanel.Controls.Add(StarButton);
+            HomePanel.Controls.Add(EntryButton);
+            HomePanel.Controls.Add(HomeButton);
+            HomePanel.Location = new Point(15, 60);
+            HomePanel.Name = "HomePanel";
+            HomePanel.Size = new Size(776, 375);
+            HomePanel.TabIndex = 0;
+            HomePanel.Paint += panel1_Paint;
             // 
             // AiringScheduleText
             // 
-            this.AiringScheduleText.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AiringScheduleText.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AiringScheduleText.Location = new System.Drawing.Point(122, 3);
-            this.AiringScheduleText.Multiline = true;
-            this.AiringScheduleText.Name = "AiringScheduleText";
-            this.AiringScheduleText.ReadOnly = true;
-            this.AiringScheduleText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AiringScheduleText.Size = new System.Drawing.Size(651, 369);
-            this.AiringScheduleText.TabIndex = 3;
-            this.AiringScheduleText.Text = "Airing Schedule";
-            this.AiringScheduleText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            AiringScheduleText.BackColor = SystemColors.ActiveCaptionText;
+            AiringScheduleText.ForeColor = SystemColors.ActiveCaption;
+            AiringScheduleText.Location = new Point(122, 3);
+            AiringScheduleText.Multiline = true;
+            AiringScheduleText.Name = "AiringScheduleText";
+            AiringScheduleText.ReadOnly = true;
+            AiringScheduleText.ScrollBars = ScrollBars.Vertical;
+            AiringScheduleText.Size = new Size(651, 369);
+            AiringScheduleText.TabIndex = 3;
+            AiringScheduleText.Text = "Airing Schedule";
+            AiringScheduleText.TextAlign = HorizontalAlignment.Center;
             // 
             // StarButton
             // 
-            this.StarButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.StarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StarButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.StarButton.Image = ((System.Drawing.Image)(resources.GetObject("StarButton.Image")));
-            this.StarButton.Location = new System.Drawing.Point(3, 181);
-            this.StarButton.Name = "StarButton";
-            this.StarButton.Size = new System.Drawing.Size(83, 83);
-            this.StarButton.TabIndex = 2;
-            this.StarButton.UseVisualStyleBackColor = true;
-            this.StarButton.Click += new System.EventHandler(this.StarButton_Click);
+            StarButton.FlatAppearance.BorderColor = Color.Black;
+            StarButton.FlatStyle = FlatStyle.Flat;
+            StarButton.ForeColor = SystemColors.Desktop;
+            StarButton.Image = (Image)resources.GetObject("StarButton.Image");
+            StarButton.Location = new Point(3, 181);
+            StarButton.Name = "StarButton";
+            StarButton.Size = new Size(83, 83);
+            StarButton.TabIndex = 2;
+            StarButton.UseVisualStyleBackColor = true;
+            StarButton.Click += StarButton_Click;
             // 
             // EntryButton
             // 
-            this.EntryButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.EntryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EntryButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.EntryButton.Image = ((System.Drawing.Image)(resources.GetObject("EntryButton.Image")));
-            this.EntryButton.Location = new System.Drawing.Point(0, 92);
-            this.EntryButton.Name = "EntryButton";
-            this.EntryButton.Size = new System.Drawing.Size(83, 83);
-            this.EntryButton.TabIndex = 1;
-            this.EntryButton.Text = "Home";
-            this.EntryButton.UseVisualStyleBackColor = true;
-            this.EntryButton.Click += new System.EventHandler(this.EntryButton_Click);
+            EntryButton.FlatAppearance.BorderColor = Color.Black;
+            EntryButton.FlatStyle = FlatStyle.Flat;
+            EntryButton.ForeColor = SystemColors.Desktop;
+            EntryButton.Image = (Image)resources.GetObject("EntryButton.Image");
+            EntryButton.Location = new Point(0, 92);
+            EntryButton.Name = "EntryButton";
+            EntryButton.Size = new Size(83, 83);
+            EntryButton.TabIndex = 1;
+            EntryButton.Text = "Home";
+            EntryButton.UseVisualStyleBackColor = true;
+            EntryButton.Click += EntryButton_Click;
             // 
             // HomeButton
             // 
-            this.HomeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HomeButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.HomeButton.Image = ((System.Drawing.Image)(resources.GetObject("HomeButton.Image")));
-            this.HomeButton.Location = new System.Drawing.Point(0, 3);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(83, 83);
-            this.HomeButton.TabIndex = 0;
-            this.HomeButton.UseVisualStyleBackColor = true;
-            this.HomeButton.Click += new System.EventHandler(this.button1_Click);
+            HomeButton.FlatAppearance.BorderColor = Color.Black;
+            HomeButton.FlatStyle = FlatStyle.Flat;
+            HomeButton.ForeColor = SystemColors.Desktop;
+            HomeButton.Image = (Image)resources.GetObject("HomeButton.Image");
+            HomeButton.Location = new Point(0, 3);
+            HomeButton.Name = "HomeButton";
+            HomeButton.Size = new Size(83, 83);
+            HomeButton.TabIndex = 0;
+            HomeButton.UseVisualStyleBackColor = true;
+            HomeButton.Click += button1_Click;
             // 
             // EntryPanel
             // 
-            this.EntryPanel.Controls.Add(this.textBox1);
-            this.EntryPanel.Controls.Add(this.StarButton2);
-            this.EntryPanel.Controls.Add(this.FilledInEntryButton);
-            this.EntryPanel.Controls.Add(this.HomeButton2);
-            this.EntryPanel.Location = new System.Drawing.Point(15, 60);
-            this.EntryPanel.Name = "EntryPanel";
-            this.EntryPanel.Size = new System.Drawing.Size(776, 375);
-            this.EntryPanel.TabIndex = 4;
+            EntryPanel.Controls.Add(ValidTitlesBox);
+            EntryPanel.Controls.Add(NewEntryTitleText);
+            EntryPanel.Controls.Add(LatestEntryText);
+            EntryPanel.Controls.Add(textBox1);
+            EntryPanel.Controls.Add(StarButton2);
+            EntryPanel.Controls.Add(FilledInEntryButton);
+            EntryPanel.Controls.Add(HomeButton2);
+            EntryPanel.Location = new Point(15, 60);
+            EntryPanel.Name = "EntryPanel";
+            EntryPanel.Size = new Size(776, 375);
+            EntryPanel.TabIndex = 4;
+            // 
+            // ValidTitlesBox
+            // 
+            ValidTitlesBox.BackColor = SystemColors.InactiveCaptionText;
+            ValidTitlesBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ValidTitlesBox.FlatStyle = FlatStyle.Popup;
+            ValidTitlesBox.ForeColor = SystemColors.Highlight;
+            ValidTitlesBox.FormattingEnabled = true;
+            ValidTitlesBox.Location = new Point(426, 36);
+            ValidTitlesBox.Name = "ValidTitlesBox";
+            ValidTitlesBox.Size = new Size(350, 28);
+            ValidTitlesBox.TabIndex = 6;
+            ValidTitlesBox.SelectedIndexChanged += ValidTitlesBox_SelectedIndexChanged;
+            // 
+            // NewEntryTitleText
+            // 
+            NewEntryTitleText.BackColor = SystemColors.ActiveCaptionText;
+            NewEntryTitleText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            NewEntryTitleText.ForeColor = SystemColors.HotTrack;
+            NewEntryTitleText.Location = new Point(426, 3);
+            NewEntryTitleText.Name = "NewEntryTitleText";
+            NewEntryTitleText.ReadOnly = true;
+            NewEntryTitleText.Size = new Size(350, 32);
+            NewEntryTitleText.TabIndex = 5;
+            NewEntryTitleText.Text = "New Entry";
+            NewEntryTitleText.TextAlign = HorizontalAlignment.Center;
+            // 
+            // LatestEntryText
+            // 
+            LatestEntryText.BackColor = SystemColors.InactiveCaptionText;
+            LatestEntryText.BorderStyle = BorderStyle.None;
+            LatestEntryText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            LatestEntryText.ForeColor = SystemColors.HotTrack;
+            LatestEntryText.Location = new Point(122, 3);
+            LatestEntryText.Multiline = true;
+            LatestEntryText.Name = "LatestEntryText";
+            LatestEntryText.ReadOnly = true;
+            LatestEntryText.ScrollBars = ScrollBars.Vertical;
+            LatestEntryText.Size = new Size(306, 369);
+            LatestEntryText.TabIndex = 4;
+            LatestEntryText.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox1.Location = new System.Drawing.Point(122, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(651, 369);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Entry Information";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            textBox1.BackColor = SystemColors.ActiveCaptionText;
+            textBox1.ForeColor = SystemColors.ActiveCaption;
+            textBox1.Location = new Point(426, 65);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ScrollBars = ScrollBars.Vertical;
+            textBox1.Size = new Size(347, 307);
+            textBox1.TabIndex = 3;
+            textBox1.Text = "Enter text here";
+            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // StarButton2
             // 
-            this.StarButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.StarButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StarButton2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.StarButton2.Image = ((System.Drawing.Image)(resources.GetObject("StarButton2.Image")));
-            this.StarButton2.Location = new System.Drawing.Point(3, 181);
-            this.StarButton2.Name = "StarButton2";
-            this.StarButton2.Size = new System.Drawing.Size(83, 83);
-            this.StarButton2.TabIndex = 2;
-            this.StarButton2.UseVisualStyleBackColor = true;
+            StarButton2.FlatAppearance.BorderColor = Color.Black;
+            StarButton2.FlatStyle = FlatStyle.Flat;
+            StarButton2.ForeColor = SystemColors.Desktop;
+            StarButton2.Image = (Image)resources.GetObject("StarButton2.Image");
+            StarButton2.Location = new Point(3, 181);
+            StarButton2.Name = "StarButton2";
+            StarButton2.Size = new Size(83, 83);
+            StarButton2.TabIndex = 2;
+            StarButton2.UseVisualStyleBackColor = true;
             // 
             // FilledInEntryButton
             // 
-            this.FilledInEntryButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.FilledInEntryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilledInEntryButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.FilledInEntryButton.Image = ((System.Drawing.Image)(resources.GetObject("FilledInEntryButton.Image")));
-            this.FilledInEntryButton.Location = new System.Drawing.Point(0, 92);
-            this.FilledInEntryButton.Name = "FilledInEntryButton";
-            this.FilledInEntryButton.Size = new System.Drawing.Size(83, 83);
-            this.FilledInEntryButton.TabIndex = 1;
-            this.FilledInEntryButton.UseVisualStyleBackColor = true;
+            FilledInEntryButton.FlatAppearance.BorderColor = Color.Black;
+            FilledInEntryButton.FlatStyle = FlatStyle.Flat;
+            FilledInEntryButton.ForeColor = SystemColors.Desktop;
+            FilledInEntryButton.Image = (Image)resources.GetObject("FilledInEntryButton.Image");
+            FilledInEntryButton.Location = new Point(0, 92);
+            FilledInEntryButton.Name = "FilledInEntryButton";
+            FilledInEntryButton.Size = new Size(83, 83);
+            FilledInEntryButton.TabIndex = 1;
+            FilledInEntryButton.UseVisualStyleBackColor = true;
             // 
             // HomeButton2
             // 
-            this.HomeButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.HomeButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HomeButton2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.HomeButton2.Image = ((System.Drawing.Image)(resources.GetObject("HomeButton2.Image")));
-            this.HomeButton2.Location = new System.Drawing.Point(0, 3);
-            this.HomeButton2.Name = "HomeButton2";
-            this.HomeButton2.Size = new System.Drawing.Size(83, 83);
-            this.HomeButton2.TabIndex = 0;
-            this.HomeButton2.UseVisualStyleBackColor = true;
-            this.HomeButton2.Click += new System.EventHandler(this.button3_Click);
+            HomeButton2.FlatAppearance.BorderColor = Color.Black;
+            HomeButton2.FlatStyle = FlatStyle.Flat;
+            HomeButton2.ForeColor = SystemColors.Desktop;
+            HomeButton2.Image = (Image)resources.GetObject("HomeButton2.Image");
+            HomeButton2.Location = new Point(0, 3);
+            HomeButton2.Name = "HomeButton2";
+            HomeButton2.Size = new Size(83, 83);
+            HomeButton2.TabIndex = 0;
+            HomeButton2.UseVisualStyleBackColor = true;
+            HomeButton2.Click += button3_Click;
             // 
             // BackButton
             // 
-            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackButton.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.BackButton.Location = new System.Drawing.Point(20, 18);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(42, 29);
-            this.BackButton.TabIndex = 1;
-            this.BackButton.Text = "◀";
-            this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            BackButton.FlatStyle = FlatStyle.Flat;
+            BackButton.ForeColor = SystemColors.Highlight;
+            BackButton.Location = new Point(20, 18);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(42, 29);
+            BackButton.TabIndex = 1;
+            BackButton.Text = "◀";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
             // 
             // SearchIntBox
             // 
-            this.SearchIntBox.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.SearchIntBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SearchIntBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.SearchIntBox.Location = new System.Drawing.Point(556, 18);
-            this.SearchIntBox.Name = "SearchIntBox";
-            this.SearchIntBox.Size = new System.Drawing.Size(150, 23);
-            this.SearchIntBox.TabIndex = 5;
+            SearchIntBox.BackColor = SystemColors.InactiveCaptionText;
+            SearchIntBox.BorderStyle = BorderStyle.None;
+            SearchIntBox.ForeColor = SystemColors.MenuHighlight;
+            SearchIntBox.Location = new Point(556, 18);
+            SearchIntBox.Name = "SearchIntBox";
+            SearchIntBox.Size = new Size(150, 23);
+            SearchIntBox.TabIndex = 5;
+            // 
+            // SearchButton
+            // 
+            SearchButton.FlatStyle = FlatStyle.Flat;
+            SearchButton.ForeColor = SystemColors.Highlight;
+            SearchButton.Location = new Point(721, 13);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new Size(42, 29);
+            SearchButton.TabIndex = 6;
+            SearchButton.Text = "🔍";
+            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.SearchIntBox);
-            this.Controls.Add(this.EntryPanel);
-            this.Controls.Add(this.BackButton);
-            this.Controls.Add(this.HomePanel);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            this.HomePanel.ResumeLayout(false);
-            this.HomePanel.PerformLayout();
-            this.EntryPanel.ResumeLayout(false);
-            this.EntryPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchIntBox)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Desktop;
+            ClientSize = new Size(800, 450);
+            Controls.Add(SearchButton);
+            Controls.Add(SearchIntBox);
+            Controls.Add(EntryPanel);
+            Controls.Add(HomePanel);
+            Controls.Add(BackButton);
+            Name = "Form2";
+            Text = "Form2";
+            HomePanel.ResumeLayout(false);
+            HomePanel.PerformLayout();
+            EntryPanel.ResumeLayout(false);
+            EntryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SearchIntBox).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -226,5 +285,9 @@
         private Button HomeButton2;
         private Button BackButton;
         private NumericUpDown SearchIntBox;
+        private Button SearchButton;
+        private TextBox LatestEntryText;
+        private ComboBox ValidTitlesBox;
+        private TextBox NewEntryTitleText;
     }
 }
