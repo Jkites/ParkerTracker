@@ -1,6 +1,9 @@
 ﻿using JikanDotNet;
+using JikanDotNet.Exceptions;
+using Nito.AsyncEx;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,20 +23,32 @@ namespace FormTest {
         public ShowInfo(int id) {
             this.id = id;
         }
-        public async Task<String> populateFields() {
-            IJikan jikan = new Jikan();
-            var anime = await jikan.GetAnimeAsync(this.id);
-            name = anime.Data.TitleEnglish;
+        private async Task<String> populateFieldInternal() {
+            var jikan = new Jikan();
+            try {
+                var anime = await jikan.GetAnimeAsync(this.id); //need to add check if id is a valid one....
+            //JikanDotNet.Exceptions.JikanRequestException: 'GET request failed. Status code: NotFound Inner message: System.Net.Http.HttpConnectionResponseContent
+            
+                name = anime.Data.TitleEnglish;
+                description = anime.Data.Synopsis;
+            } catch (JikanRequestException ex) {
+                name = "Could not find"+id;
+                description = "Not found";
+            }
+
             return name;
         }
-        private string populateSynopsis(Anime anime) {
-            return anime.Synopsis;
+        public void populateFields() {
+            AsyncContext.Run(populateFieldInternal);
         }
         public string getName() {
             return name;
         }
         public string getDescription() {
             return description;
+        }
+        public int getID() {
+            return id;
         }
         public void addEntry(string entry) {
             entrys.Enqueue(entry);

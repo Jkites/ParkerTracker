@@ -383,10 +383,10 @@
         elOZ+gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="StarButtonFilled.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEwAAABKCAYAAAARzrI2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAACtdJREFUeF7tnAuUVVUZx7eIohKCPBTilYIKaUsLXVr2WD2khZCmZlSmVpKRGrZQ
+        cQAAEnEB89x6jgAACtdJREFUeF7tnAuUVVUZx7eIohKCPBTilYIKaUsLXVr2WD2khZCmZlSmVpKRGrZQ
         spWYKbp8FCE6A8wAM+DMOCMvGXqImZiWqUXaSs2ytLc9jcweltXu+91vjrPn3u/OnHPuPecOIGv91uV+
         c86+e//vt/f+9t7fuU7++X7BHnvYdlfOXjNMY23Yc6B346Z4d8jR3o2aYF9Te0xjbRh9iHf1j3v3Je/d
         J9cEf+tXXmYa8yHshke93bvLOlWsbwotv/dubp13B4zueU/tMY35MXAv7yYe6d2Cdu8eEaFW/sy7mx7z
@@ -435,7 +435,7 @@
         Yl2XDtMYj96i5t7+VhOqVh/T+DLlMY0vY+L8/wG1Ea82zc8cpAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="EntryButtonEmpty2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEoAAAA9CAYAAAAK9/8IAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
         cQAAEnEB89x6jgAABwpJREFUeF7tmwuwjVUUx5d3GqOSyKNCiRkJU0pNYzKVSKSUqZlGphcjo0gReYxp
@@ -471,10 +471,10 @@
         ysNqdISxGh1hrEZHANH/AFiWhtQCwsoVAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="HomeButtonEmpty2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAE4AAABZCAYAAACQeRI+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAADu5JREFUeF7tnAe0XEUZx4cO0jtBOgLSpRlAQTqC1NCVcuiCYA5NCc2gdEILpLy0
+        cQAAEnEB89x6jgAADu5JREFUeF7tnAe0XEUZx4cO0jtBOgLSpRlAQTqC1NCVcuiCYA5NCc2gdEILpLy0
         91JIIS+VriC9HgICggXFXkEsiCjF8f+7s7N79+637+57eeU+z+ac/9l9396ZO/PN12cmTv98E12CSWwi
         HyaxiXyYxCbyYRKbyIdJbCIfJrGJfJjEAmERg1YImMS+w6KLerfY4gGLFJZpwCT2HrLM+eKZ3l3/pHeX
         3+3dOptX/1YsRprEXkCKCetu4d2eJ3i36xHefedh71733j0sfOXb3u1yuHe7HePdUp+obde3MIm9i5Ou

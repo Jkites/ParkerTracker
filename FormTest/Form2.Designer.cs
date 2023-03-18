@@ -30,6 +30,7 @@
             EntryButton = new Button();
             HomeButton = new Button();
             EntryPanel = new Panel();
+            SaveButtonEntry = new Button();
             ValidTitlesBox = new ComboBox();
             NewEntryTitleText = new TextBox();
             LatestEntryText = new TextBox();
@@ -40,9 +41,17 @@
             BackButton = new Button();
             SearchIntBox = new NumericUpDown();
             SearchButton = new Button();
+            StarPanel = new Panel();
+            SaveButtonStar = new Button();
+            SearchValidShowBox = new ComboBox();
+            ShowInformationBox = new TextBox();
+            StarButtonFilled = new Button();
+            EntryButtonEmpty2 = new Button();
+            HomeButtonEmpty2 = new Button();
             HomePanel.SuspendLayout();
             EntryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SearchIntBox).BeginInit();
+            StarPanel.SuspendLayout();
             SuspendLayout();
             // 
             // HomePanel
@@ -113,6 +122,7 @@
             // 
             // EntryPanel
             // 
+            EntryPanel.Controls.Add(SaveButtonEntry);
             EntryPanel.Controls.Add(ValidTitlesBox);
             EntryPanel.Controls.Add(NewEntryTitleText);
             EntryPanel.Controls.Add(LatestEntryText);
@@ -124,6 +134,23 @@
             EntryPanel.Name = "EntryPanel";
             EntryPanel.Size = new Size(776, 375);
             EntryPanel.TabIndex = 4;
+            // 
+            // SaveButtonEntry
+            // 
+            SaveButtonEntry.BackColor = Color.FromArgb(64, 0, 64);
+            SaveButtonEntry.Cursor = Cursors.Hand;
+            SaveButtonEntry.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            SaveButtonEntry.FlatAppearance.BorderSize = 0;
+            SaveButtonEntry.FlatAppearance.MouseDownBackColor = Color.Silver;
+            SaveButtonEntry.FlatAppearance.MouseOverBackColor = Color.Silver;
+            SaveButtonEntry.FlatStyle = FlatStyle.Flat;
+            SaveButtonEntry.ForeColor = SystemColors.Highlight;
+            SaveButtonEntry.Location = new Point(541, 343);
+            SaveButtonEntry.Name = "SaveButtonEntry";
+            SaveButtonEntry.Size = new Size(94, 29);
+            SaveButtonEntry.TabIndex = 7;
+            SaveButtonEntry.Text = "Save";
+            SaveButtonEntry.UseVisualStyleBackColor = false;
             // 
             // ValidTitlesBox
             // 
@@ -174,7 +201,7 @@
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(347, 307);
+            textBox1.Size = new Size(350, 277);
             textBox1.TabIndex = 3;
             textBox1.Text = "Enter text here";
             textBox1.TextAlign = HorizontalAlignment.Center;
@@ -190,6 +217,7 @@
             StarButton2.Size = new Size(83, 83);
             StarButton2.TabIndex = 2;
             StarButton2.UseVisualStyleBackColor = true;
+            StarButton2.Click += StarButton2_Click;
             // 
             // FilledInEntryButton
             // 
@@ -234,9 +262,12 @@
             SearchIntBox.BorderStyle = BorderStyle.None;
             SearchIntBox.ForeColor = SystemColors.MenuHighlight;
             SearchIntBox.Location = new Point(556, 18);
+            SearchIntBox.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            SearchIntBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             SearchIntBox.Name = "SearchIntBox";
             SearchIntBox.Size = new Size(150, 23);
             SearchIntBox.TabIndex = 5;
+            SearchIntBox.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // SearchButton
             // 
@@ -250,6 +281,101 @@
             SearchButton.UseVisualStyleBackColor = true;
             SearchButton.Click += SearchButton_Click;
             // 
+            // StarPanel
+            // 
+            StarPanel.Controls.Add(SaveButtonStar);
+            StarPanel.Controls.Add(SearchValidShowBox);
+            StarPanel.Controls.Add(ShowInformationBox);
+            StarPanel.Controls.Add(StarButtonFilled);
+            StarPanel.Controls.Add(EntryButtonEmpty2);
+            StarPanel.Controls.Add(HomeButtonEmpty2);
+            StarPanel.Location = new Point(15, 60);
+            StarPanel.Name = "StarPanel";
+            StarPanel.Size = new Size(776, 375);
+            StarPanel.TabIndex = 4;
+            // 
+            // SaveButtonStar
+            // 
+            SaveButtonStar.BackColor = Color.FromArgb(64, 0, 64);
+            SaveButtonStar.Cursor = Cursors.Hand;
+            SaveButtonStar.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            SaveButtonStar.FlatAppearance.BorderSize = 0;
+            SaveButtonStar.FlatAppearance.MouseDownBackColor = Color.Silver;
+            SaveButtonStar.FlatAppearance.MouseOverBackColor = Color.Silver;
+            SaveButtonStar.FlatStyle = FlatStyle.Flat;
+            SaveButtonStar.ForeColor = SystemColors.Highlight;
+            SaveButtonStar.Location = new Point(398, 343);
+            SaveButtonStar.Name = "SaveButtonStar";
+            SaveButtonStar.Size = new Size(94, 29);
+            SaveButtonStar.TabIndex = 8;
+            SaveButtonStar.Text = "Save";
+            SaveButtonStar.UseVisualStyleBackColor = false;
+            // 
+            // SearchValidShowBox
+            // 
+            SearchValidShowBox.BackColor = SystemColors.InactiveCaptionText;
+            SearchValidShowBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            SearchValidShowBox.FlatStyle = FlatStyle.Popup;
+            SearchValidShowBox.ForeColor = SystemColors.Highlight;
+            SearchValidShowBox.FormattingEnabled = true;
+            SearchValidShowBox.Location = new Point(122, 7);
+            SearchValidShowBox.Name = "SearchValidShowBox";
+            SearchValidShowBox.Size = new Size(651, 28);
+            SearchValidShowBox.TabIndex = 7;
+            // 
+            // ShowInformationBox
+            // 
+            ShowInformationBox.BackColor = SystemColors.ActiveCaptionText;
+            ShowInformationBox.ForeColor = SystemColors.ActiveCaption;
+            ShowInformationBox.Location = new Point(122, 41);
+            ShowInformationBox.Multiline = true;
+            ShowInformationBox.Name = "ShowInformationBox";
+            ShowInformationBox.ReadOnly = true;
+            ShowInformationBox.ScrollBars = ScrollBars.Vertical;
+            ShowInformationBox.Size = new Size(651, 301);
+            ShowInformationBox.TabIndex = 3;
+            ShowInformationBox.Text = "Show Name - ID";
+            ShowInformationBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // StarButtonFilled
+            // 
+            StarButtonFilled.FlatAppearance.BorderColor = Color.Black;
+            StarButtonFilled.FlatStyle = FlatStyle.Flat;
+            StarButtonFilled.ForeColor = SystemColors.Desktop;
+            StarButtonFilled.Image = (Image)resources.GetObject("StarButtonFilled.Image");
+            StarButtonFilled.Location = new Point(3, 181);
+            StarButtonFilled.Name = "StarButtonFilled";
+            StarButtonFilled.Size = new Size(83, 83);
+            StarButtonFilled.TabIndex = 2;
+            StarButtonFilled.UseVisualStyleBackColor = true;
+            // 
+            // EntryButtonEmpty2
+            // 
+            EntryButtonEmpty2.FlatAppearance.BorderColor = Color.Black;
+            EntryButtonEmpty2.FlatStyle = FlatStyle.Flat;
+            EntryButtonEmpty2.ForeColor = SystemColors.Desktop;
+            EntryButtonEmpty2.Image = (Image)resources.GetObject("EntryButtonEmpty2.Image");
+            EntryButtonEmpty2.Location = new Point(0, 92);
+            EntryButtonEmpty2.Name = "EntryButtonEmpty2";
+            EntryButtonEmpty2.Size = new Size(83, 83);
+            EntryButtonEmpty2.TabIndex = 1;
+            EntryButtonEmpty2.Text = "Home";
+            EntryButtonEmpty2.UseVisualStyleBackColor = true;
+            EntryButtonEmpty2.Click += EntryButtonEmpty2_Click;
+            // 
+            // HomeButtonEmpty2
+            // 
+            HomeButtonEmpty2.FlatAppearance.BorderColor = Color.Black;
+            HomeButtonEmpty2.FlatStyle = FlatStyle.Flat;
+            HomeButtonEmpty2.ForeColor = SystemColors.Desktop;
+            HomeButtonEmpty2.Image = (Image)resources.GetObject("HomeButtonEmpty2.Image");
+            HomeButtonEmpty2.Location = new Point(0, 3);
+            HomeButtonEmpty2.Name = "HomeButtonEmpty2";
+            HomeButtonEmpty2.Size = new Size(83, 83);
+            HomeButtonEmpty2.TabIndex = 0;
+            HomeButtonEmpty2.UseVisualStyleBackColor = true;
+            HomeButtonEmpty2.Click += HomeButtonEmpty2_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -258,6 +384,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(SearchButton);
             Controls.Add(SearchIntBox);
+            Controls.Add(StarPanel);
             Controls.Add(EntryPanel);
             Controls.Add(HomePanel);
             Controls.Add(BackButton);
@@ -268,6 +395,8 @@
             EntryPanel.ResumeLayout(false);
             EntryPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SearchIntBox).EndInit();
+            StarPanel.ResumeLayout(false);
+            StarPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -289,5 +418,13 @@
         private TextBox LatestEntryText;
         private ComboBox ValidTitlesBox;
         private TextBox NewEntryTitleText;
+        private Panel StarPanel;
+        private ComboBox SearchValidShowBox;
+        private TextBox ShowInformationBox;
+        private Button StarButtonFilled;
+        private Button EntryButtonEmpty2;
+        private Button HomeButtonEmpty2;
+        private Button SaveButtonEntry;
+        private Button SaveButtonStar;
     }
 }
