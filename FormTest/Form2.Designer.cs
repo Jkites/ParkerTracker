@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             HomePanel = new Panel();
             AiringScheduleText = new TextBox();
             StarButton = new Button();
@@ -69,7 +68,8 @@
             // AiringScheduleText
             // 
             AiringScheduleText.BackColor = SystemColors.ActiveCaptionText;
-            AiringScheduleText.ForeColor = SystemColors.ActiveCaption;
+            AiringScheduleText.BorderStyle = BorderStyle.FixedSingle;
+            AiringScheduleText.ForeColor = SystemColors.ButtonShadow;
             AiringScheduleText.Location = new Point(122, 3);
             AiringScheduleText.Multiline = true;
             AiringScheduleText.Name = "AiringScheduleText";
@@ -84,12 +84,13 @@
             // 
             StarButton.FlatAppearance.BorderColor = Color.Black;
             StarButton.FlatStyle = FlatStyle.Flat;
-            StarButton.ForeColor = SystemColors.Desktop;
-            StarButton.Image = (Image)resources.GetObject("StarButton.Image");
+            StarButton.Font = new Font("Segoe UI", 40F, FontStyle.Regular, GraphicsUnit.Point);
+            StarButton.ForeColor = SystemColors.Highlight;
             StarButton.Location = new Point(3, 181);
             StarButton.Name = "StarButton";
             StarButton.Size = new Size(83, 83);
             StarButton.TabIndex = 2;
+            StarButton.Text = "☆";
             StarButton.UseVisualStyleBackColor = true;
             StarButton.Click += StarButton_Click;
             // 
@@ -97,13 +98,13 @@
             // 
             EntryButton.FlatAppearance.BorderColor = Color.Black;
             EntryButton.FlatStyle = FlatStyle.Flat;
-            EntryButton.ForeColor = SystemColors.Desktop;
-            EntryButton.Image = (Image)resources.GetObject("EntryButton.Image");
+            EntryButton.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            EntryButton.ForeColor = SystemColors.Highlight;
             EntryButton.Location = new Point(0, 92);
             EntryButton.Name = "EntryButton";
             EntryButton.Size = new Size(83, 83);
             EntryButton.TabIndex = 1;
-            EntryButton.Text = "Home";
+            EntryButton.Text = "💬︎";
             EntryButton.UseVisualStyleBackColor = true;
             EntryButton.Click += EntryButton_Click;
             // 
@@ -111,12 +112,13 @@
             // 
             HomeButton.FlatAppearance.BorderColor = Color.Black;
             HomeButton.FlatStyle = FlatStyle.Flat;
-            HomeButton.ForeColor = SystemColors.Desktop;
-            HomeButton.Image = (Image)resources.GetObject("HomeButton.Image");
+            HomeButton.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            HomeButton.ForeColor = SystemColors.ActiveBorder;
             HomeButton.Location = new Point(0, 3);
             HomeButton.Name = "HomeButton";
             HomeButton.Size = new Size(83, 83);
             HomeButton.TabIndex = 0;
+            HomeButton.Text = "🏠";
             HomeButton.UseVisualStyleBackColor = true;
             HomeButton.Click += button1_Click;
             // 
@@ -168,12 +170,12 @@
             // NewEntryTitleText
             // 
             NewEntryTitleText.BackColor = SystemColors.ActiveCaptionText;
-            NewEntryTitleText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            NewEntryTitleText.ForeColor = SystemColors.HotTrack;
+            NewEntryTitleText.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            NewEntryTitleText.ForeColor = SystemColors.ControlDark;
             NewEntryTitleText.Location = new Point(426, 3);
             NewEntryTitleText.Name = "NewEntryTitleText";
             NewEntryTitleText.ReadOnly = true;
-            NewEntryTitleText.Size = new Size(350, 32);
+            NewEntryTitleText.Size = new Size(350, 27);
             NewEntryTitleText.TabIndex = 5;
             NewEntryTitleText.Text = "New Entry";
             NewEntryTitleText.TextAlign = HorizontalAlignment.Center;
@@ -181,7 +183,7 @@
             // LatestEntryText
             // 
             LatestEntryText.BackColor = SystemColors.InactiveCaptionText;
-            LatestEntryText.BorderStyle = BorderStyle.None;
+            LatestEntryText.BorderStyle = BorderStyle.FixedSingle;
             LatestEntryText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             LatestEntryText.ForeColor = SystemColors.HotTrack;
             LatestEntryText.Location = new Point(122, 3);
@@ -196,7 +198,7 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.ActiveCaptionText;
-            textBox1.ForeColor = SystemColors.ActiveCaption;
+            textBox1.ForeColor = SystemColors.ControlDark;
             textBox1.Location = new Point(426, 65);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
@@ -210,12 +212,13 @@
             // 
             StarButton2.FlatAppearance.BorderColor = Color.Black;
             StarButton2.FlatStyle = FlatStyle.Flat;
-            StarButton2.ForeColor = SystemColors.Desktop;
-            StarButton2.Image = (Image)resources.GetObject("StarButton2.Image");
+            StarButton2.Font = new Font("Segoe UI", 40F, FontStyle.Regular, GraphicsUnit.Point);
+            StarButton2.ForeColor = SystemColors.Highlight;
             StarButton2.Location = new Point(3, 181);
             StarButton2.Name = "StarButton2";
             StarButton2.Size = new Size(83, 83);
             StarButton2.TabIndex = 2;
+            StarButton2.Text = "☆";
             StarButton2.UseVisualStyleBackColor = true;
             StarButton2.Click += StarButton2_Click;
             // 
@@ -223,24 +226,26 @@
             // 
             FilledInEntryButton.FlatAppearance.BorderColor = Color.Black;
             FilledInEntryButton.FlatStyle = FlatStyle.Flat;
-            FilledInEntryButton.ForeColor = SystemColors.Desktop;
-            FilledInEntryButton.Image = (Image)resources.GetObject("FilledInEntryButton.Image");
+            FilledInEntryButton.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            FilledInEntryButton.ForeColor = SystemColors.ActiveBorder;
             FilledInEntryButton.Location = new Point(0, 92);
             FilledInEntryButton.Name = "FilledInEntryButton";
             FilledInEntryButton.Size = new Size(83, 83);
             FilledInEntryButton.TabIndex = 1;
+            FilledInEntryButton.Text = "💬︎";
             FilledInEntryButton.UseVisualStyleBackColor = true;
             // 
             // HomeButton2
             // 
             HomeButton2.FlatAppearance.BorderColor = Color.Black;
             HomeButton2.FlatStyle = FlatStyle.Flat;
-            HomeButton2.ForeColor = SystemColors.Desktop;
-            HomeButton2.Image = (Image)resources.GetObject("HomeButton2.Image");
+            HomeButton2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            HomeButton2.ForeColor = SystemColors.Highlight;
             HomeButton2.Location = new Point(0, 3);
             HomeButton2.Name = "HomeButton2";
             HomeButton2.Size = new Size(83, 83);
             HomeButton2.TabIndex = 0;
+            HomeButton2.Text = "🏠";
             HomeButton2.UseVisualStyleBackColor = true;
             HomeButton2.Click += button3_Click;
             // 
@@ -262,7 +267,7 @@
             SearchIntBox.BorderStyle = BorderStyle.None;
             SearchIntBox.ForeColor = SystemColors.MenuHighlight;
             SearchIntBox.Location = new Point(556, 18);
-            SearchIntBox.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            SearchIntBox.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             SearchIntBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             SearchIntBox.Name = "SearchIntBox";
             SearchIntBox.Size = new Size(150, 23);
@@ -310,6 +315,7 @@
             SaveButtonStar.TabIndex = 8;
             SaveButtonStar.Text = "Save";
             SaveButtonStar.UseVisualStyleBackColor = false;
+            SaveButtonStar.Click += SaveButtonStar_Click;
             // 
             // SearchValidShowBox
             // 
@@ -326,7 +332,7 @@
             // ShowInformationBox
             // 
             ShowInformationBox.BackColor = SystemColors.ActiveCaptionText;
-            ShowInformationBox.ForeColor = SystemColors.ActiveCaption;
+            ShowInformationBox.ForeColor = SystemColors.ButtonShadow;
             ShowInformationBox.Location = new Point(122, 41);
             ShowInformationBox.Multiline = true;
             ShowInformationBox.Name = "ShowInformationBox";
@@ -341,25 +347,26 @@
             // 
             StarButtonFilled.FlatAppearance.BorderColor = Color.Black;
             StarButtonFilled.FlatStyle = FlatStyle.Flat;
-            StarButtonFilled.ForeColor = SystemColors.Desktop;
-            StarButtonFilled.Image = (Image)resources.GetObject("StarButtonFilled.Image");
+            StarButtonFilled.Font = new Font("Segoe UI", 40F, FontStyle.Regular, GraphicsUnit.Point);
+            StarButtonFilled.ForeColor = SystemColors.ActiveBorder;
             StarButtonFilled.Location = new Point(3, 181);
             StarButtonFilled.Name = "StarButtonFilled";
             StarButtonFilled.Size = new Size(83, 83);
             StarButtonFilled.TabIndex = 2;
+            StarButtonFilled.Text = "☆";
             StarButtonFilled.UseVisualStyleBackColor = true;
             // 
             // EntryButtonEmpty2
             // 
             EntryButtonEmpty2.FlatAppearance.BorderColor = Color.Black;
             EntryButtonEmpty2.FlatStyle = FlatStyle.Flat;
-            EntryButtonEmpty2.ForeColor = SystemColors.Desktop;
-            EntryButtonEmpty2.Image = (Image)resources.GetObject("EntryButtonEmpty2.Image");
+            EntryButtonEmpty2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            EntryButtonEmpty2.ForeColor = SystemColors.Highlight;
             EntryButtonEmpty2.Location = new Point(0, 92);
             EntryButtonEmpty2.Name = "EntryButtonEmpty2";
             EntryButtonEmpty2.Size = new Size(83, 83);
             EntryButtonEmpty2.TabIndex = 1;
-            EntryButtonEmpty2.Text = "Home";
+            EntryButtonEmpty2.Text = "💬︎";
             EntryButtonEmpty2.UseVisualStyleBackColor = true;
             EntryButtonEmpty2.Click += EntryButtonEmpty2_Click;
             // 
@@ -367,12 +374,13 @@
             // 
             HomeButtonEmpty2.FlatAppearance.BorderColor = Color.Black;
             HomeButtonEmpty2.FlatStyle = FlatStyle.Flat;
-            HomeButtonEmpty2.ForeColor = SystemColors.Desktop;
-            HomeButtonEmpty2.Image = (Image)resources.GetObject("HomeButtonEmpty2.Image");
+            HomeButtonEmpty2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            HomeButtonEmpty2.ForeColor = SystemColors.Highlight;
             HomeButtonEmpty2.Location = new Point(0, 3);
             HomeButtonEmpty2.Name = "HomeButtonEmpty2";
             HomeButtonEmpty2.Size = new Size(83, 83);
             HomeButtonEmpty2.TabIndex = 0;
+            HomeButtonEmpty2.Text = "🏠";
             HomeButtonEmpty2.UseVisualStyleBackColor = true;
             HomeButtonEmpty2.Click += HomeButtonEmpty2_Click;
             // 
@@ -384,8 +392,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(SearchButton);
             Controls.Add(SearchIntBox);
-            Controls.Add(StarPanel);
             Controls.Add(EntryPanel);
+            Controls.Add(StarPanel);
             Controls.Add(HomePanel);
             Controls.Add(BackButton);
             Name = "Form2";

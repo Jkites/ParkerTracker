@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace FormTest {
     internal class ShowInfo {
-        private int id;
-        private string name;
-        private string description;
-        private Queue<string> entrys = new Queue<string>();
+        protected int id;
+        protected string name;
+        protected string description;
+        protected Boolean airing;
+        protected Queue<string> entrys = new Queue<string>();
 
         public ShowInfo(int id, string name, string description) {
             this.id = id;
@@ -22,21 +23,23 @@ namespace FormTest {
         }
         public ShowInfo(int id) {
             this.id = id;
+            name = "Filler Name";
+            description = "This is a description";
         }
-        private async Task<String> populateFieldInternal() {
+        protected virtual async Task<Boolean> populateFieldInternal() {
             var jikan = new Jikan();
             try {
-                var anime = await jikan.GetAnimeAsync(this.id); //need to add check if id is a valid one....
-            //JikanDotNet.Exceptions.JikanRequestException: 'GET request failed. Status code: NotFound Inner message: System.Net.Http.HttpConnectionResponseContent
-            
+                var anime = await jikan.GetAnimeAsync(id);
                 name = anime.Data.TitleEnglish;
                 description = anime.Data.Synopsis;
+                description = description.Replace("\n", "\r\n"); //so it outputs correctly in textbox
+                airing = anime.Data.Airing;
+                return true;
             } catch (JikanRequestException ex) {
-                name = "Could not find"+id;
+                name = "ID invalid or does not exist";
                 description = "Not found";
+                return false;
             }
-
-            return name;
         }
         public void populateFields() {
             AsyncContext.Run(populateFieldInternal);
@@ -49,6 +52,9 @@ namespace FormTest {
         }
         public int getID() {
             return id;
+        }
+        public Boolean isAiring() {
+            return airing;
         }
         public void addEntry(string entry) {
             entrys.Enqueue(entry);

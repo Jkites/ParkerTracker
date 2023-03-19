@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkerTracker;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace FormTest {
     public partial class Form2 : Form { //needs the list of ShowInfos that are SAVED so also create that file reader class
         Stack<Panel> panels = new Stack<Panel>();
         Panel currentpanel;
+        ShowInfo temp_show;
         public Form2() {
             InitializeComponent();
             currentpanel = HomePanel;
@@ -72,7 +74,7 @@ namespace FormTest {
         private void SearchButton_Click(object sender, EventArgs e) { //use SearchIntBox
             StarButton_Click(sender, e);
             int id = Convert.ToInt32(Math.Round(SearchIntBox.Value, 0));
-            ShowInfo temp_show = new ShowInfo(id);
+            temp_show = new ShowInfo(id);
             temp_show.populateFields();
             ShowInformationBox.Text = "" + temp_show.getName() + " - " + temp_show.getID() + "\r\n" + temp_show.getDescription();
         }
@@ -89,6 +91,14 @@ namespace FormTest {
 
         private void StarButton2_Click(object sender, EventArgs e) {
             StarButton_Click(sender, e);
+        }
+
+        private void SaveButtonStar_Click(object sender, EventArgs e) {
+            //uise show info check if the show is airing or not. If airing create airing object, if not continue with showinfo object
+            if (temp_show.isAiring()) {
+                Airing temp_airing = new Airing(temp_show.getID());
+                temp_airing.populateFields();
+            }
         }
     }
 }
