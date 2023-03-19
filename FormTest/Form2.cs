@@ -65,19 +65,21 @@ namespace FormTest {
             string filecontents = "";
             try {
                 filecontents = File.ReadAllText("CompletedShows.json");
-            } catch (FileNotFoundException e) {
+            }
+            catch (FileNotFoundException e) {
                 Debug.WriteLine(e.Message);
             }
             try {
                 List<ShowInfo> completed_temp = JsonConvert.DeserializeObject<List<ShowInfo>>(filecontents);
                 if (completed_temp != null) {
                     completed_shows.Clear(); //no dupe
-                    for (int i=0; i < completed_temp.Count; i++) {
+                    for (int i = 0; i < completed_temp.Count; i++) {
                         completed_shows.Add((ShowInfo)completed_temp[i]);
                         Debug.Write(completed_shows[i]);
                     }
                 }
-            } catch (SerializationException e) { Debug.WriteLine(e.Message); }
+            }
+            catch (SerializationException e) { Debug.WriteLine(e.Message); }
         }
         private string RecursiveAdd(List<Airing> airingstemp, List<Airing> airings, string scheduletext, int i) {
             if (i == 0) {

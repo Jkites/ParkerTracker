@@ -33,6 +33,8 @@
             UserText = new TextBox();
             PasswordText = new TextBox();
             StatusText = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -137,12 +139,36 @@
             StatusText.TabIndex = 8;
             StatusText.TextChanged += StatusText_TextChanged;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.Highlight;
+            label3.Location = new Point(220, 65);
+            label3.Name = "label3";
+            label3.Size = new Size(104, 29);
+            label3.TabIndex = 9;
+            label3.Text = "Parker";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.Highlight;
+            label4.Location = new Point(487, 65);
+            label4.Name = "label4";
+            label4.Size = new Size(117, 29);
+            label4.TabIndex = 10;
+            label4.Text = "Tracker";
+            // 
             // LoginScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(800, 450);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(StatusText);
             Controls.Add(PasswordText);
             Controls.Add(UserText);
@@ -171,5 +197,7 @@
         private TextBox UserText;
         private TextBox PasswordText;
         private TextBox StatusText;
+        private Label label3;
+        private Label label4;
     }
 }

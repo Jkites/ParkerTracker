@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             HomePanel = new Panel();
+            textBox1 = new TextBox();
             AiringScheduleText = new TextBox();
             StarButton = new Button();
             EntryButton = new Button();
@@ -48,7 +49,7 @@
             EntryButtonEmpty2 = new Button();
             HomeButtonEmpty2 = new Button();
             SaveWarningText = new TextBox();
-            textBox1 = new TextBox();
+            label1 = new Label();
             HomePanel.SuspendLayout();
             EntryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ShowImage).BeginInit();
@@ -68,6 +69,20 @@
             HomePanel.Size = new Size(776, 375);
             HomePanel.TabIndex = 0;
             HomePanel.Paint += panel1_Paint;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.InactiveCaptionText;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.RoyalBlue;
+            textBox1.Location = new Point(122, 5);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(654, 25);
+            textBox1.TabIndex = 11;
+            textBox1.Text = "Airing Schedule";
+            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // AiringScheduleText
             // 
@@ -398,19 +413,16 @@
             SaveWarningText.Size = new Size(263, 27);
             SaveWarningText.TabIndex = 9;
             // 
-            // textBox1
+            // label1
             // 
-            textBox1.BackColor = SystemColors.InactiveCaptionText;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = Color.RoyalBlue;
-            textBox1.Location = new Point(122, 5);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(654, 25);
-            textBox1.TabIndex = 11;
-            textBox1.Text = "Airing Schedule";
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            label1.AutoSize = true;
+            label1.Font = new Font("Ink Free", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.ForeColor = Color.SlateBlue;
+            label1.Location = new Point(137, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(227, 37);
+            label1.TabIndex = 7;
+            label1.Text = "Parker Tracker";
             // 
             // Form2
             // 
@@ -418,6 +430,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(SearchButton);
             Controls.Add(SearchIntBox);
             Controls.Add(HomePanel);
@@ -435,6 +448,7 @@
             StarPanel.ResumeLayout(false);
             StarPanel.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -465,5 +479,6 @@
         private PictureBox ShowImage;
         private TextBox StarTitle;
         private TextBox textBox1;
+        private Label label1;
     }
 }
