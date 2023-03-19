@@ -18,7 +18,7 @@ namespace ParkerTracker {
         [DataMember]
         Date date { get; set; }
         
-        public Airing (int id, Date date, string name, string description, Boolean airing) : base(id, name, description, airing) {
+        public Airing (int id, Date date, string name, string description, Boolean airing, string imageURL) : base(id, name, description, airing, imageURL) {
             this.date = new Date(date.getDay(), date.getTime());
         }
         public Airing (int id) : base(id) { date=new Date(); }
@@ -41,8 +41,8 @@ namespace ParkerTracker {
         public void setDate(Date date) {
             this.date = new Date(date.getDay(),date.getTime());
         }
-        public override string ToString() {
-            return name +" - "+ description + date.ToString();
+        public string getInfo() {
+            return name +" - "+ date.ToString();
         }
     }
 }

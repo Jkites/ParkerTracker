@@ -21,11 +21,12 @@ namespace FormTest {
         ShowInfo temp_show;
         List<Airing> airings = new List<Airing>();
         List<ShowInfo> completed_shows = new List<ShowInfo>();
+        List<ShowInfo> allshows = new List<ShowInfo>();
         public Form2() {
             InitializeComponent();
             currentpanel = HomePanel;
             EntryPanel.Hide();
-            StarPanel.Hide();   
+            StarPanel.Hide();
             populateText();
 
         }
@@ -37,7 +38,8 @@ namespace FormTest {
                 fileinfo = File.ReadAllBytes("AiringShows.json");
                 filecontents = File.ReadAllText("AiringShows.json");
                 Debug.WriteLine(filecontents);
-            } catch (FileNotFoundException e) {
+            }
+            catch (FileNotFoundException e) {
                 Debug.WriteLine(e.Message);
             }
             try {
@@ -47,14 +49,49 @@ namespace FormTest {
                 //var utf = new Utf8JsonReader(fileinfo);
                 List<Airing> airingstemp = JsonConvert.DeserializeObject<List<Airing>>(filecontents);
                 //ms.Close();
-                for (int i = 0; i < airingstemp.Count; i++) {
-                    airings.Add((Airing)airingstemp[i]);
-                    Debug.WriteLine(airingstemp[i]);
-                    AiringScheduleText.Text = AiringScheduleText.Text + "\r\n" + airingstemp[i];
+                if (airingstemp != null) {
+                    airings.Clear(); //so it doesnt dupe
+                    for (int i = 0; i < airingstemp.Count; i++) {
+                        airings.Add((Airing)airingstemp[i]);
+                        Debug.WriteLine(airings[i]);
+                    }
+                    AiringScheduleText.Text = RecursiveAdd(airingstemp, airings, "", 0);
                 }
-            }catch(SerializationException e) { Debug.WriteLine(e.Message); }
-            
+            }
+            catch (SerializationException e) { Debug.WriteLine(e.Message); }
+            populateTextCompleted();
         }
+        private void populateTextCompleted() {
+            string filecontents = "";
+            try {
+                filecontents = File.ReadAllText("CompletedShows.json");
+            } catch (FileNotFoundException e) {
+                Debug.WriteLine(e.Message);
+            }
+            try {
+                List<ShowInfo> completed_temp = JsonConvert.DeserializeObject<List<ShowInfo>>(filecontents);
+                if (completed_temp != null) {
+                    completed_shows.Clear(); //no dupe
+                    for (int i=0; i < completed_temp.Count; i++) {
+                        completed_shows.Add((ShowInfo)completed_temp[i]);
+                        Debug.Write(completed_shows[i]);
+                    }
+                }
+            } catch (SerializationException e) { Debug.WriteLine(e.Message); }
+        }
+        private string RecursiveAdd(List<Airing> airingstemp, List<Airing> airings, string scheduletext, int i) {
+            if (i == 0) {
+                scheduletext = "";
+            }
+
+            if (i < airings.Count) {
+                scheduletext = scheduletext + "\r\n" + airings[i].getInfo();
+                return RecursiveAdd(airingstemp, airings, scheduletext, i + 1);
+            }
+
+            return scheduletext;
+        }
+
 
         private void button1_Click(object sender, EventArgs e) { //home button on home panel
 
@@ -66,14 +103,17 @@ namespace FormTest {
             EntryPanel.Show();
             currentpanel = EntryPanel;
             Debug.WriteLine("Going Entry, adding" + currentpanel.Name + "to Stack");
+            populateComboBox();
         }
 
         private void StarButton_Click(object sender, EventArgs e) {
             currentpanel.Hide();
             panels.Push(currentpanel);
             StarPanel.Show();
+            SaveWarningText.Text = "";
             currentpanel = StarPanel;
             Debug.WriteLine("going star, add " + currentpanel.Name + "to Stack");
+            populateComboBox();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) {
@@ -106,10 +146,13 @@ namespace FormTest {
             int id = Convert.ToInt32(Math.Round(SearchIntBox.Value, 0));
             temp_show = new ShowInfo(id);
             temp_show.populateFields();
-            ShowInformationBox.Text = "" + temp_show.getName() + " - " + temp_show.getID() + "\r\n" + temp_show.getDescription();
+            StarTitle.Text = "" + temp_show.getName() + " - " + temp_show.getID() + "\r\n";
+            ShowInformationBox.Text = "" + temp_show.getDescription();
         }
 
-        private void ValidTitlesBox_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void ValidTitlesBox_SelectedIndexChanged(object sender, EventArgs e) {
+            temp_show = allshows[ValidTitlesBox.SelectedIndex];
+        }
 
         private void HomeButtonEmpty2_Click(object sender, EventArgs e) {
             button3_Click(sender, e);
@@ -125,25 +168,76 @@ namespace FormTest {
 
         private void SaveButtonStar_Click(object sender, EventArgs e) {
             //uise show info check if the show is airing or not. If airing create airing object, if not continue with showinfo object
-            if (temp_show.isAiring()) {
-                Airing temp_airing = new Airing(temp_show.getID());
-                temp_airing.populateFields();
-                airings.Add(temp_airing);
-                var ser = new DataContractJsonSerializer(typeof(List<Airing>)); //crazy right adding the objects into a list solved the issue of finding multiple per json
-                MemoryStream stream1 = new MemoryStream(); //well kind of , protected methdos that the json could not reach, so I needed to create new construtors that the Json file could use to update object fields
-                ser.WriteObject(stream1, airings);
-                //stream1.Position = 0;
-                //var sr = new StreamReader(stream1);
-                //string jsonstring = sr.ReadToEnd();
-                byte[] json = stream1.ToArray();
-                stream1.Close();
-                Debug.WriteLine(json);
-                string jsonstring = Encoding.UTF8.GetString(json, 0, json.Length);
-                File.WriteAllText("AiringShows.json", jsonstring);
+            if (temp_show != null) {
+                if (temp_show.isAiring()) {
+                    Boolean alreadyExists = false;
+                    for (int i = 0; i < airings.Count; i++) {
+                        if (temp_show.getID().Equals(airings[i].getID())) { alreadyExists = true; break; }
+                    }
+                    if (!alreadyExists) {
+                        Airing temp_airing = new Airing(temp_show.getID());
+                        temp_airing.populateFields();
+                        airings.Add(temp_airing);
+                        var ser = new DataContractJsonSerializer(typeof(List<Airing>)); //crazy right adding the objects into a list solved the issue of finding multiple per json
+                        MemoryStream stream1 = new MemoryStream(); //well kind of , protected methdos that the json could not reach, so I needed to create new construtors that the Json file could use to update object fields
+                        ser.WriteObject(stream1, airings); //queue super bugged out when in json format, isnt read right
+                                                           //stream1.Position = 0;
+                                                           //var sr = new StreamReader(stream1);
+                                                           //string jsonstring = sr.ReadToEnd();
+                        byte[] json = stream1.ToArray();
+                        stream1.Close();
+                        Debug.WriteLine(json);
+                        string jsonstring = Encoding.UTF8.GetString(json, 0, json.Length);
+                        File.WriteAllText("AiringShows.json", jsonstring);
+                        SaveWarningText.Text = "Success";
+                    }
+                    else {
+                        SaveWarningText.Text = "Show Already Exists";
+                    }
+                }
+                else {
+                    Boolean alreadyExists = false;
+                    for (int i = 0; i < completed_shows.Count; i++) {
+                        if (temp_show.getID().Equals(completed_shows[i].getID())) { alreadyExists = true; break; }
+                    }
+                    if (!alreadyExists) {
+                        completed_shows.Add(temp_show);
+                        var ser = new DataContractJsonSerializer(typeof(List<ShowInfo>));
+                        MemoryStream stream1 = new MemoryStream();
+                        ser.WriteObject(stream1, completed_shows);
+                        byte[] json = stream1.ToArray();
+                        stream1.Close();
+                        Debug.WriteLine(json);
+                        string jsonstring = Encoding.UTF8.GetString(json, 0, json.Length);
+                        File.WriteAllText("CompletedShows.json", jsonstring);
+                        SaveWarningText.Text = "Show Already Exists";
+                    }
+                    else {
+                        SaveWarningText.Text = "Show Already Exists";
+                    }
+                }
             }
             else {
-
+                SaveWarningText.Text = "Null show";
+                Debug.WriteLine("Null show");
             }
+        }
+        public void populateComboBox() {
+            allshows.Clear(); //necessary to not dupe
+            for (int i = 0; i < airings.Count; i++) {
+                allshows.Add(airings[i] as ShowInfo);
+            }
+            for (int i = 0; i < completed_shows.Count; i++) {
+                allshows.Add(completed_shows[i]);
+            }
+            ValidTitlesBox.DataSource = allshows;
+        }
+
+        private void SelectButton_Click(object sender, EventArgs e) {
+            temp_show = allshows[ValidTitlesBox.SelectedIndex];
+            Debug.WriteLine(ValidTitlesBox.SelectedIndex);
+            ShowImage.Load(temp_show.getImageURL());
+            Synopsis.Text = temp_show.getDescription();
         }
     }
 }

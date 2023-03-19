@@ -29,11 +29,11 @@
             EntryButton = new Button();
             HomeButton = new Button();
             EntryPanel = new Panel();
-            SaveButtonEntry = new Button();
+            ShowImage = new PictureBox();
+            SelectButton = new Button();
             ValidTitlesBox = new ComboBox();
             NewEntryTitleText = new TextBox();
-            LatestEntryText = new TextBox();
-            textBox1 = new TextBox();
+            Synopsis = new TextBox();
             StarButton2 = new Button();
             FilledInEntryButton = new Button();
             HomeButton2 = new Button();
@@ -41,20 +41,24 @@
             SearchIntBox = new NumericUpDown();
             SearchButton = new Button();
             StarPanel = new Panel();
+            StarTitle = new TextBox();
             SaveButtonStar = new Button();
-            SearchValidShowBox = new ComboBox();
             ShowInformationBox = new TextBox();
             StarButtonFilled = new Button();
             EntryButtonEmpty2 = new Button();
             HomeButtonEmpty2 = new Button();
+            SaveWarningText = new TextBox();
+            textBox1 = new TextBox();
             HomePanel.SuspendLayout();
             EntryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ShowImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SearchIntBox).BeginInit();
             StarPanel.SuspendLayout();
             SuspendLayout();
             // 
             // HomePanel
             // 
+            HomePanel.Controls.Add(textBox1);
             HomePanel.Controls.Add(AiringScheduleText);
             HomePanel.Controls.Add(StarButton);
             HomePanel.Controls.Add(EntryButton);
@@ -69,13 +73,14 @@
             // 
             AiringScheduleText.BackColor = SystemColors.ActiveCaptionText;
             AiringScheduleText.BorderStyle = BorderStyle.FixedSingle;
+            AiringScheduleText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             AiringScheduleText.ForeColor = SystemColors.ButtonShadow;
-            AiringScheduleText.Location = new Point(122, 3);
+            AiringScheduleText.Location = new Point(122, 36);
             AiringScheduleText.Multiline = true;
             AiringScheduleText.Name = "AiringScheduleText";
             AiringScheduleText.ReadOnly = true;
             AiringScheduleText.ScrollBars = ScrollBars.Vertical;
-            AiringScheduleText.Size = new Size(651, 369);
+            AiringScheduleText.Size = new Size(651, 336);
             AiringScheduleText.TabIndex = 3;
             AiringScheduleText.Text = "Airing Schedule";
             AiringScheduleText.TextAlign = HorizontalAlignment.Center;
@@ -124,11 +129,11 @@
             // 
             // EntryPanel
             // 
-            EntryPanel.Controls.Add(SaveButtonEntry);
+            EntryPanel.Controls.Add(ShowImage);
+            EntryPanel.Controls.Add(SelectButton);
             EntryPanel.Controls.Add(ValidTitlesBox);
             EntryPanel.Controls.Add(NewEntryTitleText);
-            EntryPanel.Controls.Add(LatestEntryText);
-            EntryPanel.Controls.Add(textBox1);
+            EntryPanel.Controls.Add(Synopsis);
             EntryPanel.Controls.Add(StarButton2);
             EntryPanel.Controls.Add(FilledInEntryButton);
             EntryPanel.Controls.Add(HomeButton2);
@@ -137,22 +142,32 @@
             EntryPanel.Size = new Size(776, 375);
             EntryPanel.TabIndex = 4;
             // 
-            // SaveButtonEntry
+            // ShowImage
             // 
-            SaveButtonEntry.BackColor = Color.FromArgb(64, 0, 64);
-            SaveButtonEntry.Cursor = Cursors.Hand;
-            SaveButtonEntry.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            SaveButtonEntry.FlatAppearance.BorderSize = 0;
-            SaveButtonEntry.FlatAppearance.MouseDownBackColor = Color.Silver;
-            SaveButtonEntry.FlatAppearance.MouseOverBackColor = Color.Silver;
-            SaveButtonEntry.FlatStyle = FlatStyle.Flat;
-            SaveButtonEntry.ForeColor = SystemColors.Highlight;
-            SaveButtonEntry.Location = new Point(541, 343);
-            SaveButtonEntry.Name = "SaveButtonEntry";
-            SaveButtonEntry.Size = new Size(94, 29);
-            SaveButtonEntry.TabIndex = 7;
-            SaveButtonEntry.Text = "Save";
-            SaveButtonEntry.UseVisualStyleBackColor = false;
+            ShowImage.Image = ParkerTracker.Properties.Resources.baer;
+            ShowImage.Location = new Point(105, 3);
+            ShowImage.Name = "ShowImage";
+            ShowImage.Size = new Size(315, 372);
+            ShowImage.TabIndex = 8;
+            ShowImage.TabStop = false;
+            // 
+            // SelectButton
+            // 
+            SelectButton.BackColor = Color.FromArgb(64, 0, 64);
+            SelectButton.Cursor = Cursors.Hand;
+            SelectButton.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            SelectButton.FlatAppearance.BorderSize = 0;
+            SelectButton.FlatAppearance.MouseDownBackColor = Color.Silver;
+            SelectButton.FlatAppearance.MouseOverBackColor = Color.Silver;
+            SelectButton.FlatStyle = FlatStyle.Flat;
+            SelectButton.ForeColor = SystemColors.Highlight;
+            SelectButton.Location = new Point(541, 343);
+            SelectButton.Name = "SelectButton";
+            SelectButton.Size = new Size(94, 29);
+            SelectButton.TabIndex = 7;
+            SelectButton.Text = "Select";
+            SelectButton.UseVisualStyleBackColor = false;
+            SelectButton.Click += SelectButton_Click;
             // 
             // ValidTitlesBox
             // 
@@ -171,42 +186,27 @@
             // 
             NewEntryTitleText.BackColor = SystemColors.ActiveCaptionText;
             NewEntryTitleText.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            NewEntryTitleText.ForeColor = SystemColors.ControlDark;
+            NewEntryTitleText.ForeColor = Color.SandyBrown;
             NewEntryTitleText.Location = new Point(426, 3);
             NewEntryTitleText.Name = "NewEntryTitleText";
             NewEntryTitleText.ReadOnly = true;
             NewEntryTitleText.Size = new Size(350, 27);
             NewEntryTitleText.TabIndex = 5;
-            NewEntryTitleText.Text = "New Entry";
+            NewEntryTitleText.Text = "Select Show";
             NewEntryTitleText.TextAlign = HorizontalAlignment.Center;
             // 
-            // LatestEntryText
+            // Synopsis
             // 
-            LatestEntryText.BackColor = SystemColors.InactiveCaptionText;
-            LatestEntryText.BorderStyle = BorderStyle.FixedSingle;
-            LatestEntryText.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            LatestEntryText.ForeColor = SystemColors.HotTrack;
-            LatestEntryText.Location = new Point(122, 3);
-            LatestEntryText.Multiline = true;
-            LatestEntryText.Name = "LatestEntryText";
-            LatestEntryText.ReadOnly = true;
-            LatestEntryText.ScrollBars = ScrollBars.Vertical;
-            LatestEntryText.Size = new Size(306, 369);
-            LatestEntryText.TabIndex = 4;
-            LatestEntryText.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.ActiveCaptionText;
-            textBox1.ForeColor = SystemColors.ControlDark;
-            textBox1.Location = new Point(426, 65);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(350, 277);
-            textBox1.TabIndex = 3;
-            textBox1.Text = "Enter text here";
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            Synopsis.BackColor = SystemColors.ActiveCaptionText;
+            Synopsis.ForeColor = SystemColors.ControlDark;
+            Synopsis.Location = new Point(426, 65);
+            Synopsis.Multiline = true;
+            Synopsis.Name = "Synopsis";
+            Synopsis.ReadOnly = true;
+            Synopsis.ScrollBars = ScrollBars.Vertical;
+            Synopsis.Size = new Size(350, 277);
+            Synopsis.TabIndex = 3;
+            Synopsis.TextAlign = HorizontalAlignment.Center;
             // 
             // StarButton2
             // 
@@ -288,16 +288,30 @@
             // 
             // StarPanel
             // 
+            StarPanel.Controls.Add(StarTitle);
             StarPanel.Controls.Add(SaveButtonStar);
-            StarPanel.Controls.Add(SearchValidShowBox);
             StarPanel.Controls.Add(ShowInformationBox);
             StarPanel.Controls.Add(StarButtonFilled);
             StarPanel.Controls.Add(EntryButtonEmpty2);
             StarPanel.Controls.Add(HomeButtonEmpty2);
+            StarPanel.Controls.Add(SaveWarningText);
             StarPanel.Location = new Point(15, 60);
             StarPanel.Name = "StarPanel";
             StarPanel.Size = new Size(776, 375);
             StarPanel.TabIndex = 4;
+            // 
+            // StarTitle
+            // 
+            StarTitle.BackColor = SystemColors.InactiveCaptionText;
+            StarTitle.BorderStyle = BorderStyle.None;
+            StarTitle.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            StarTitle.ForeColor = Color.RoyalBlue;
+            StarTitle.Location = new Point(122, 3);
+            StarTitle.Name = "StarTitle";
+            StarTitle.ReadOnly = true;
+            StarTitle.Size = new Size(654, 25);
+            StarTitle.TabIndex = 10;
+            StarTitle.TextAlign = HorizontalAlignment.Center;
             // 
             // SaveButtonStar
             // 
@@ -317,28 +331,16 @@
             SaveButtonStar.UseVisualStyleBackColor = false;
             SaveButtonStar.Click += SaveButtonStar_Click;
             // 
-            // SearchValidShowBox
-            // 
-            SearchValidShowBox.BackColor = SystemColors.InactiveCaptionText;
-            SearchValidShowBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            SearchValidShowBox.FlatStyle = FlatStyle.Popup;
-            SearchValidShowBox.ForeColor = SystemColors.Highlight;
-            SearchValidShowBox.FormattingEnabled = true;
-            SearchValidShowBox.Location = new Point(122, 7);
-            SearchValidShowBox.Name = "SearchValidShowBox";
-            SearchValidShowBox.Size = new Size(651, 28);
-            SearchValidShowBox.TabIndex = 7;
-            // 
             // ShowInformationBox
             // 
             ShowInformationBox.BackColor = SystemColors.ActiveCaptionText;
             ShowInformationBox.ForeColor = SystemColors.ButtonShadow;
-            ShowInformationBox.Location = new Point(122, 41);
+            ShowInformationBox.Location = new Point(122, 36);
             ShowInformationBox.Multiline = true;
             ShowInformationBox.Name = "ShowInformationBox";
             ShowInformationBox.ReadOnly = true;
             ShowInformationBox.ScrollBars = ScrollBars.Vertical;
-            ShowInformationBox.Size = new Size(651, 301);
+            ShowInformationBox.Size = new Size(651, 306);
             ShowInformationBox.TabIndex = 3;
             ShowInformationBox.Text = "Show Name - ID";
             ShowInformationBox.TextAlign = HorizontalAlignment.Center;
@@ -384,6 +386,32 @@
             HomeButtonEmpty2.UseVisualStyleBackColor = true;
             HomeButtonEmpty2.Click += HomeButtonEmpty2_Click;
             // 
+            // SaveWarningText
+            // 
+            SaveWarningText.BackColor = SystemColors.InactiveCaptionText;
+            SaveWarningText.BorderStyle = BorderStyle.None;
+            SaveWarningText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SaveWarningText.ForeColor = Color.Purple;
+            SaveWarningText.Location = new Point(510, 341);
+            SaveWarningText.Name = "SaveWarningText";
+            SaveWarningText.ReadOnly = true;
+            SaveWarningText.Size = new Size(263, 27);
+            SaveWarningText.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.InactiveCaptionText;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.RoyalBlue;
+            textBox1.Location = new Point(122, 5);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(654, 25);
+            textBox1.TabIndex = 11;
+            textBox1.Text = "Airing Schedule";
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -392,9 +420,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(SearchButton);
             Controls.Add(SearchIntBox);
+            Controls.Add(HomePanel);
             Controls.Add(EntryPanel);
             Controls.Add(StarPanel);
-            Controls.Add(HomePanel);
             Controls.Add(BackButton);
             Name = "Form2";
             Text = "Form2";
@@ -402,6 +430,7 @@
             HomePanel.PerformLayout();
             EntryPanel.ResumeLayout(false);
             EntryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ShowImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)SearchIntBox).EndInit();
             StarPanel.ResumeLayout(false);
             StarPanel.PerformLayout();
@@ -416,23 +445,25 @@
         private Button EntryButton;
         private TextBox AiringScheduleText;
         private Panel EntryPanel;
-        private TextBox textBox1;
+        private TextBox Synopsis;
         private Button StarButton2;
         private Button FilledInEntryButton;
         private Button HomeButton2;
         private Button BackButton;
         private NumericUpDown SearchIntBox;
         private Button SearchButton;
-        private TextBox LatestEntryText;
         private ComboBox ValidTitlesBox;
         private TextBox NewEntryTitleText;
         private Panel StarPanel;
-        private ComboBox SearchValidShowBox;
         private TextBox ShowInformationBox;
         private Button StarButtonFilled;
         private Button EntryButtonEmpty2;
         private Button HomeButtonEmpty2;
-        private Button SaveButtonEntry;
+        private Button SelectButton;
         private Button SaveButtonStar;
+        private TextBox SaveWarningText;
+        private PictureBox ShowImage;
+        private TextBox StarTitle;
+        private TextBox textBox1;
     }
 }

@@ -23,14 +23,17 @@ namespace FormTest {
         }
         [DataMember]
         protected Boolean airing { get; set; }
+        [DataMember]
+        protected string imageURL { get; set; }
         /*[DataMember]
         protected Queue<string> entrys = new Queue<string>();*/
         [JsonConstructor]
-        public ShowInfo(int id, string name, string description, Boolean airing) {
+        public ShowInfo(int id, string name, string description, Boolean airing, string imageURL) {
             this.id = id;
             this.name = name;
             this.description = description;
             this.airing= airing;
+            this.imageURL = imageURL;
             /*for (int i = 0; i < entrys.Count; i++) {
                 this.entrys.Enqueue(entrys.Dequeue());
             }*/
@@ -54,6 +57,8 @@ namespace FormTest {
                 description = anime.Data.Synopsis;
                 description = description.Replace("\n", "\r\n"); //so it outputs correctly in textbox
                 airing = anime.Data.Airing;
+                imageURL = anime.Data.Images.JPG.ImageUrl;
+                Debug.WriteLine(imageURL);
                 return true;
             } catch (JikanRequestException ex) {
                 name = "ID invalid or does not exist";
@@ -93,6 +98,9 @@ namespace FormTest {
         public Boolean isAiring() {
             return airing;
         }
+        public string getImageURL() {
+            return imageURL;
+        }
         /*public void addEntry(string entry) {
             entrys.Enqueue(entry);
         }
@@ -105,5 +113,8 @@ namespace FormTest {
             }
             return entry;
         }*/
+        public override string ToString() {
+            return name;
+        }
     }
 }
