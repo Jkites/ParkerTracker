@@ -3,20 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ParkerTracker {
+    [DataContract]
     internal class Date { //class for changing from jst to pst
-        string day="Not valid";
-        string time="Not valid";
+        [DataMember]
+        string day { get; set; }
+        [DataMember]
+        string time {get; set;}
         String[] daysofweek = {"Mondays","Tuesdays", "Wednesdays", "Thursdays", "Fridays","Saturdays","Sundays"};
+        
+        public Date(string day, string time, string[] daysofweek) {
+            this.time = time;
+            this.day = day;
+            this.daysofweek = daysofweek;
+        }
+        [JsonConstructor]
         public Date(string day, string time) {
             this.day = day;
             this.time = time;
         }
         public Date(string raw_str) {
             parseString(raw_str);
+        }
+        public Date() {
+
         }
         private void parseString(string str) {
             string[] substrings = str.Split(' ');
@@ -49,7 +64,14 @@ namespace ParkerTracker {
                 }
             }
         }
-
+        public string getDay() {
+            return day;
+        }
+        public string getTime() { return time; }
+        public void setDay(string day) {
+            this.day = day;
+        }
+        public void setTime(string time) { this.time = time; }
         public override string ToString() {
             return day + " at " + time +" PST (without daylight savings time)";
         }

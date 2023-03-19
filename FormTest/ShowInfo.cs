@@ -5,26 +5,46 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FormTest {
+    [DataContract]
     internal class ShowInfo {
-        protected int id;
-        protected string name;
-        protected string description;
-        protected Boolean airing;
-        protected Queue<string> entrys = new Queue<string>();
-
-        public ShowInfo(int id, string name, string description) {
+        [DataMember]
+        protected int id { get; set; }
+        [DataMember]
+        protected string name { get; set; }
+        [DataMember]
+        protected string description {
+            get; set;
+        }
+        [DataMember]
+        protected Boolean airing { get; set; }
+        /*[DataMember]
+        protected Queue<string> entrys = new Queue<string>();*/
+        [JsonConstructor]
+        public ShowInfo(int id, string name, string description, Boolean airing) {
             this.id = id;
             this.name = name;
             this.description = description;
+            this.airing= airing;
+            /*for (int i = 0; i < entrys.Count; i++) {
+                this.entrys.Enqueue(entrys.Dequeue());
+            }*/
         }
         public ShowInfo(int id) {
             this.id = id;
             name = "Filler Name";
             description = "This is a description";
+        }
+        public ShowInfo() { 
+            this.id = -1;
+            name= "test";
+            description="test description";
+            airing = false;
         }
         protected virtual async Task<Boolean> populateFieldInternal() {
             var jikan = new Jikan();
@@ -53,10 +73,27 @@ namespace FormTest {
         public int getID() {
             return id;
         }
+        public void setID(int id) {
+            this.id = id;
+        }
+        public void setDescription(string description) {
+            this.description = description;
+        }
+        public void setName(string name) {
+            this.name = name;
+        }
+        public void setAiring(bool airing) {
+            this.airing = airing;
+        }
+        /*public void setEntrys(Queue<String> entrys) {
+            for (int i = 0; i < entrys.Count; i++) {
+                this.entrys.Enqueue(entrys.Dequeue());
+            }
+        }*/
         public Boolean isAiring() {
             return airing;
         }
-        public void addEntry(string entry) {
+        /*public void addEntry(string entry) {
             entrys.Enqueue(entry);
         }
         public String getEntryString() {
@@ -67,6 +104,6 @@ namespace FormTest {
                 entry += "\n";
             }
             return entry;
-        }
+        }*/
     }
 }
