@@ -2,6 +2,7 @@
 using ParkerTracker;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -55,7 +56,7 @@ namespace FormTest {
                         airings.Add((Airing)airingstemp[i]);
                         Debug.WriteLine(airings[i]);
                     }
-                    AiringScheduleText.Text = RecursiveAdd(airingstemp, airings, "", 0);
+                    AiringScheduleText.Text = RecursiveAdd(airings, "", 0);
                 }
             }
             catch (SerializationException e) { Debug.WriteLine(e.Message); }
@@ -81,14 +82,14 @@ namespace FormTest {
             }
             catch (SerializationException e) { Debug.WriteLine(e.Message); }
         }
-        private string RecursiveAdd(List<Airing> airingstemp, List<Airing> airings, string scheduletext, int i) {
+        private string RecursiveAdd(List<Airing> airings, string scheduletext, int i) {
             if (i == 0) {
                 scheduletext = "";
             }
 
             if (i < airings.Count) {
                 scheduletext = scheduletext + "\r\n" + airings[i].getInfo();
-                return RecursiveAdd(airingstemp, airings, scheduletext, i + 1);
+                return RecursiveAdd(airings, scheduletext, i + 1);
             }
 
             return scheduletext;
@@ -153,7 +154,7 @@ namespace FormTest {
         }
 
         private void ValidTitlesBox_SelectedIndexChanged(object sender, EventArgs e) {
-            temp_show = allshows[ValidTitlesBox.SelectedIndex];
+            //temp_show = allshows[ValidTitlesBox.SelectedIndex];
         }
 
         private void HomeButtonEmpty2_Click(object sender, EventArgs e) {
@@ -212,7 +213,7 @@ namespace FormTest {
                         Debug.WriteLine(json);
                         string jsonstring = Encoding.UTF8.GetString(json, 0, json.Length);
                         File.WriteAllText("CompletedShows.json", jsonstring);
-                        SaveWarningText.Text = "Show Already Exists";
+                        SaveWarningText.Text = "Success";
                     }
                     else {
                         SaveWarningText.Text = "Show Already Exists";
@@ -225,6 +226,7 @@ namespace FormTest {
             }
         }
         public void populateComboBox() {
+            populateText();
             allshows.Clear(); //necessary to not dupe
             for (int i = 0; i < airings.Count; i++) {
                 allshows.Add(airings[i] as ShowInfo);
@@ -232,14 +234,24 @@ namespace FormTest {
             for (int i = 0; i < completed_shows.Count; i++) {
                 allshows.Add(completed_shows[i]);
             }
-            ValidTitlesBox.DataSource = allshows;
+            ObservableCollection<ShowInfo> dropdownlist = new ObservableCollection<ShowInfo>();
+            for (int i = 0; i < allshows.Count; i++) {
+                dropdownlist.Add(allshows[i]);
+            }
+            ValidTitlesBox.DataSource = dropdownlist;
         }
 
         private void SelectButton_Click(object sender, EventArgs e) {
-            temp_show = allshows[ValidTitlesBox.SelectedIndex];
-            Debug.WriteLine(ValidTitlesBox.SelectedIndex);
-            ShowImage.Load(temp_show.getImageURL());
-            Synopsis.Text = temp_show.getDescription();
+            try {
+                temp_show = allshows[ValidTitlesBox.SelectedIndex];
+                Debug.WriteLine(ValidTitlesBox.SelectedIndex);
+                ShowImage.Load(temp_show.getImageURL());
+                Synopsis.Text = temp_show.getDescription();
+            }
+            catch (ArgumentOutOfRangeException err) {
+                Synopsis.Text = "No show selected";
+                Debug.WriteLine(err.Message);
+            }
         }
     }
 }

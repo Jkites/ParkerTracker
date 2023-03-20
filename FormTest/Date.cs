@@ -73,7 +73,7 @@ namespace ParkerTracker {
         }
         public void setTime(string time) { this.time = time; }
         public override string ToString() {
-            return day + " at " + time +" PST "; //actually doesnt account for daylight savings time but we should abolish it anyways 
+            return day + " at " + time +" PST "; //actually doesnt account for daylight savings time
         }
 
 

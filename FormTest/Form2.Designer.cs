@@ -433,8 +433,8 @@
             Controls.Add(label1);
             Controls.Add(SearchButton);
             Controls.Add(SearchIntBox);
-            Controls.Add(HomePanel);
             Controls.Add(EntryPanel);
+            Controls.Add(HomePanel);
             Controls.Add(StarPanel);
             Controls.Add(BackButton);
             Name = "Form2";
